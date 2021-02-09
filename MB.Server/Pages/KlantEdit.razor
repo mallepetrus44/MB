@@ -1,0 +1,63 @@
+﻿@page "/klantedit"
+@page "/klantedit/{KlantID}"
+@using MB.Server.Shared
+@inherits KlantEditBase
+
+<section class="Klant-edit">
+    @if (!Saved)
+    {
+<h1 class="page-title">Details for @Klant.Voornaam @Klant.Achternaam</h1>
+                <EditForm Model="@Klant" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
+
+                    <DataAnnotationsValidator />
+                    <ValidationSummary />
+
+                    <div class="form-group">
+                        <label for="voornaam">Voornaam: </label>
+                        <InputText id="voornaam" class="form-control" @bind-Value="@Klant.Voornaam" placeholder="voornaam"></InputText>
+                        <ValidationMessage For="@(() => Klant.Voornaam)" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="achternaam">Achternaam: </label>
+                        <InputText id="achternaam" class="form-control" @bind-Value="@Klant.Achternaam" placeholder="achternaam"></InputText>
+                        <ValidationMessage For="@(() => Klant.Achternaam)" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="BtwNummer">Btw Nummer </label>
+                        <InputText id="BtwNummer" class="form-control" @bind-Value="@Klant.BtwNummer" placeholder="Uw BTW-nummer"></InputText>
+                        <ValidationMessage For="@(() => Klant.BtwNummer)" />
+                    </div>
+                    <div class="form-group">
+                        <label for="KvkNummer">Kvk Nummer </label>
+                        <InputNumber id="KvkNummer" class="form-control" @bind-Value="@Klant.KvkNummer" placeholder="Uw KvK-nummer"></InputNumber>
+                        <ValidationMessage For="@(() => Klant.KvkNummer)" />
+                    </div>
+                    <div class="form-group">
+                        <label for="logo">Logo </label>
+                        <InputText id="logo" class="form-control" @bind-Value="@Klant.Logo" placeholder="Uw Logo"></InputText>
+                        <ValidationMessage For="@(() => Klant.Logo)" />
+                    </div>
+                    <div class="form-group">
+                        <label for="adres">Adres </label>
+                        <InputText id="adres" class="form-control" @bind-Value="@Klant.Adres" placeholder="Adres"></InputText>
+                        <ValidationMessage For="@(() => Klant.Adres)" />
+                    </div>
+                    <div class="form-group">
+                        <label for="postcode">Postcode </label>
+                        <InputText id="postcode" class="form-control" @bind-Value="@Klant.Postcode" placeholder="Postcode"></InputText>
+                        <ValidationMessage For="@(() => Klant.Postcode)" />
+                    </div>
+                    <div class="form-group">
+                        <label for="stad">Plaatsnaam </label>
+                        <InputText id="stad" class="form-control" @bind-Value="@Klant.Stad" placeholder="Plaatsnaam"></InputText>
+                        <ValidationMessage For="@(() => Klant.Stad)" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Opslaan</button>
+                </EditForm> }
+                            else
+                            {
+                <div class="alert @StatusClass">@Message</div>
+                                <a class="btn btn-outline-primary" @onclick="@NavigateToOverview">Back to overview</a>}
+</section>

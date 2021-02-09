@@ -1,0 +1,54 @@
+﻿@page "/Klantoverzicht"
+@using MB.Shared
+@inherits KlantOverzichtBase
+
+<h1 class="page-title">Alle Klanten</h1>
+
+
+@if (Klanten == null)
+{
+<p><em>Loading...</em></p> }
+else
+{
+<table class="table">
+    <thead>
+        <tr>
+            @*<th></th>*@
+            <th>Klantnummer</th>
+            <th>Voornaam</th>
+            <th>Achternaam</th>
+            <th>Adres</th>
+            <th>Postcode</th>
+            <th>Plaatsnaam</th>
+            <th>Goedgekeurd</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Klant in Klanten)
+        {
+<tr>
+    @*<td><img src="@($"https://gillcleerenpluralsight.blob.core.windows.net/person/{employee.EmployeeId}-small.jpg")" class="rounded-circle" /></td>*@
+    <td>@Klant.KlantId</td>
+    <td>@Klant.Voornaam</td>
+    <td>@Klant.Achternaam</td>
+    <td>@Klant.Adres</td>
+    <td>@Klant.Postcode</td>
+    <td>@Klant.Stad</td>
+    <td>@Klant.Goedgekeurd</td>
+    <td>
+        <a href="@($"Klantdetail/{Klant.KlantId}")" class="btn btn-primary table-btn">
+            <i class="fas fa-info-circle"></i>
+        </a>
+        <a href="@($"Klantedit/{Klant.KlantId}")" class="btn btn-primary table-btn">
+            <i class="fas fa-edit"></i>
+        </a>
+    </td>
+</tr>
+}
+    </tbody>
+</table>    }
+
+<button @onclick="@QuickAddKlant" class="btn btn-dark table-btn quick-add-btn">&nbsp;&nbsp;+&nbsp;&nbsp;</button>
+
+<QuickRegisterKlant @ref="QuickRegisterKlant" CloseEventCallback="@QuickRegisterKlant_OnDialogClose"></QuickRegisterKlant>

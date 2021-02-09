@@ -1,0 +1,113 @@
+﻿@page "/fotomodeldetail/{FotoModelId}"
+@inherits FotoModelDetailBase
+
+<section class="Fotomodel-detail">
+    <h1 class="page-title">Details for @FotoModel.Voornaam @FotoModel.Achternaam</h1>
+
+    @{ var leadingFormat = "00000";}
+
+    <div class="col-12 row">
+        <div class="col-10 row">
+            <div class="col-xs-12 col-sm-8">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Fotomodelnummer</label>
+                    <div class="col-sm-8">
+                        <label type="text" class="form-control-plaintext">@FotoModel.FotoModelId.ToString(leadingFormat)</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Voornaam</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@FotoModel.Voornaam</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Achternaam</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@FotoModel.Achternaam</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Adres</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@FotoModel.Adres</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Postcode</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@FotoModel.Postcode</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Plaatsnaam</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@FotoModel.Stad</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Geboortedatum</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@FotoModel.Geboortedatum.ToShortDateString()</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Leeftijd</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@FotoModel.Leeftijd</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Geslacht</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@FotoModel.Geslacht</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Bovenwijdte</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@FotoModel.Bovenwijdte</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Taillewijdte</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@FotoModel.Taillewijdte</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Heupwijdte</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@FotoModel.Heupwijdte</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Lengte</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@FotoModel.Lengte</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Fotos</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@FotoModel.Fotos</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

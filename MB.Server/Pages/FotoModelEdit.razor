@@ -1,0 +1,110 @@
+﻿@page "/Fotomodeledit"
+@page "/Fotomodeledit/{FotoModelID}"
+@using MB.Shared
+@inherits FotoModelEditBase
+@*<div class="modal fade show d-block" id="exampleModal" tabindex="-1" role="dialog">*@
+
+@*<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="titleLabel">Registreer als klant</h5>
+        </div>
+        <div class="modal-body">*@
+<section class="Fotomodel-edit">
+    @if (!Saved)
+    {
+        <h1 class="page-title">Details for @FotoModel.Voornaam @FotoModel.Achternaam</h1>
+        <EditForm Model="@FotoModel" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
+
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group">
+                <label for="voornaam">Voornaam: </label>
+                <InputText id="voornaam" class="form-control" @bind-Value="@FotoModel.Voornaam" placeholder="Voornaam"></InputText>
+                <ValidationMessage For="@(() => FotoModel.Voornaam)" />
+            </div>
+
+            <div class="form-group">
+                <label for="achternaam">Achternaam: </label>
+                <InputText id="achternaam" class="form-control" @bind-Value="@FotoModel.Achternaam" placeholder="Achternaam"></InputText>
+                <ValidationMessage For="@(() => FotoModel.Achternaam)" />
+            </div>
+
+            <div class="form-group">
+                <label for="geboortedatum">Geboortedatum: </label>
+                <InputDate id="geboortedatum" class="form-control" @bind-Value="@FotoModel.Geboortedatum" placeholder="Uw Geboortedatum"></InputDate>
+                <ValidationMessage For="@(() => FotoModel.Geboortedatum)" />
+            </div>
+
+            <div class="form-group row">
+                <label for="geslacht" class="col-sm-3">Geslacht: </label>
+                <InputSelect id="geslacht" class="form-control col-sm-8" @bind-Value=@FotoModel.Geslacht>
+                    <option value="@(Geslacht.Vrouw)">Vrouw</option>
+                    <option value="@(Geslacht.Man)">Man</option>
+                </InputSelect>
+            </div>
+
+            <div class="form-group">
+                <label for="Bovenwijdte">Bovenwijdte: </label>
+                <InputNumber id="Bovenwijdte" class="form-control" @bind-Value="@FotoModel.Bovenwijdte" placeholder="Uw Bovenwijdte"></InputNumber>
+                <ValidationMessage For="@(() => FotoModel.Bovenwijdte)" />
+            </div>
+
+            <div class="form-group">
+                <label for="Taillewijdte">Taillewijdte: </label>
+                <InputNumber id="Taillewijdte" class="form-control" @bind-Value="@FotoModel.Taillewijdte" placeholder="Uw Taillewijdte"></InputNumber>
+                <ValidationMessage For="@(() => FotoModel.Taillewijdte)" />
+            </div>
+
+            <div class="form-group">
+                <label for="Heupwijdte">Heupwijdte: </label>
+                <InputNumber id="Heupwijdte" class="form-control" @bind-Value="@FotoModel.Heupwijdte" placeholder="Uw Heupwijdte"></InputNumber>
+                <ValidationMessage For="@(() => FotoModel.Heupwijdte)" />
+            </div>
+
+            <div class="form-group">
+                <label for="Lengte">Lengte: </label>
+                <InputNumber id="Lengte" class="form-control" @bind-Value="@FotoModel.Lengte" placeholder="Uw Lengte"></InputNumber>
+                <ValidationMessage For="@(() => FotoModel.Lengte)" />
+            </div>
+
+            <div class="form-group">
+                <label for="achternaam">Achternaam: </label>
+                <InputText id="achternaam" class="form-control" @bind-Value="@FotoModel.Achternaam" placeholder="Achternaam"></InputText>
+                <ValidationMessage For="@(() => FotoModel.Achternaam)" />
+            </div>
+
+            <div class="form-group">
+                <label for="adres">Adres: </label>
+                <InputText id="adres" class="form-control" @bind-Value="@FotoModel.Adres" placeholder="Adres"></InputText>
+                <ValidationMessage For="@(() => FotoModel.Adres)" />
+            </div>
+
+            <div class="form-group">
+                <label for="postcode">Postcode: </label>
+                <InputText id="postcode" class="form-control" @bind-Value="@FotoModel.Postcode" placeholder="Postcode"></InputText>
+                <ValidationMessage For="@(() => FotoModel.Postcode)" />
+            </div>
+
+            <div class="form-group">
+                <label for="stad">Plaatsnaam: </label>
+                <InputText id="stad" class="form-control" @bind-Value="@FotoModel.Stad" placeholder="Plaatsnaam"></InputText>
+                <ValidationMessage For="@(() => FotoModel.Stad)" />
+            </div>
+
+            <div class="form-group">
+                <label for="Fotos">Fotos: </label>
+                <InputText id="Fotos" class="form-control" @bind-Value="@FotoModel.Fotos" placeholder="Fotos"></InputText>
+                <ValidationMessage For="@(() => FotoModel.Fotos)" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Opslaan</button>
+        </EditForm>
+    }
+    else
+    {
+        <div class="alert @StatusClass">@Message</div>
+        <a class="btn btn-outline-primary" @onclick="@NavigateToOverview">Back to overview</a>
+    }
+</section>
