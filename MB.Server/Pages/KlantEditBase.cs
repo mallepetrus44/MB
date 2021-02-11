@@ -2,6 +2,7 @@
 using MB.Shared;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 
 namespace MB.Server.Pages
@@ -20,21 +21,16 @@ namespace MB.Server.Pages
         public InputText LastNameInputText { get; set; }
 
         public Klant Klant { get; set; } = new Klant();
-
-        ////needed to bind to select to value
-        //protected string CountryId = string.Empty;
+    
 
         //used to store state of screen
         protected string Message = string.Empty;
         protected string StatusClass = string.Empty;
         protected bool Saved;
 
-        //public List<Country> Countries { get; set; } = new List<Country>();
-
         protected override async Task OnInitializedAsync()
         {
-            Saved = false;
-            //Countries = (await CountryDataService.GetAllCountries()).ToList();       
+            Saved = false;     
 
             int.TryParse(KlantId, out var KlantID);
 
@@ -100,7 +96,7 @@ namespace MB.Server.Pages
 
         protected void NavigateToOverview()
         {
-            NavigationManager.NavigateTo("/KlantOverview");
+            NavigationManager.NavigateTo("/klantenoverzicht");
         }
     }
 }
