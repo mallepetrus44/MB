@@ -1,6 +1,7 @@
 ﻿@page "/Fotomodeledit"
 @page "/Fotomodeledit/{FotoModelID}"
 @using MB.Shared
+@using BlazorInputFile;
 @inherits FotoModelEditBase
 @*<div class="modal fade show d-block" id="exampleModal" tabindex="-1" role="dialog">*@
 
@@ -95,7 +96,17 @@
 
             <div class="form-group">
                 <label for="Fotos">Fotos: </label>
-                <InputText id="Fotos" class="form-control" @bind-Value="@FotoModel.Fotos" placeholder="Fotos"></InputText>
+
+                <InputFile OnChange="HandleFileSelected" class="btn-primary" />
+
+                @if (file != null)
+                {
+                    <p>Name: @file.Name</p>
+                    <p>Size in bytes: @file.Size</p>
+                    <p>Last modified date: @file.LastModified.ToShortDateString()</p>
+                    <p>Content type (not always supplied by the browser): @file.Type</p>
+                }
+
                 <ValidationMessage For="@(() => FotoModel.Fotos)" />
             </div>
 
@@ -108,3 +119,12 @@
         <a class="btn btn-outline-primary" @onclick="@NavigateToOverview">Back to overview</a>
     }
 </section>
+
+@code{
+    IFileListEntry file;
+
+    public void HandleFileSelected(IFileListEntry[] files)
+    {
+        file = files.FirstOrDefault();
+    }
+}

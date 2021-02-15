@@ -1,13 +1,16 @@
-﻿using MB.Server.Services;
+﻿
+using MB.Server.Services;
 using MB.Shared;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MB.Server.Pages
 {
     public class FotoModelEditBase : ComponentBase
     {
+
         [Inject]
         public IFotoModelDataService FotoModelDataService { get; set; }
 
@@ -102,5 +105,7 @@ namespace MB.Server.Pages
         {
             NavigationManager.NavigateTo("/CustomerOverview");
         }
+
+       
     }
 }

@@ -61,6 +61,7 @@ namespace MB.API.Models
                 foundFotoModel.Adres = fotoModel.Adres;
                 foundFotoModel.Postcode = fotoModel.Postcode;
                 foundFotoModel.Stad = fotoModel.Stad;
+                //foundFotoModel.Fotos = fotoModel.Fotos;
 
                 _mBDbContext.SaveChanges();
 

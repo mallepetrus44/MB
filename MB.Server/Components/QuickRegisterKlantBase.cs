@@ -17,7 +17,7 @@ namespace MB.Server.Components
         [Inject]
         public IKlantDataService KlantDataService { get; set; }
 
-
+        
 
         public void Show()
         {
