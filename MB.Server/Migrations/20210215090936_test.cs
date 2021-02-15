@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MB.Server.Migrations
 {
-    public partial class _1 : Migration
+    public partial class test : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -171,6 +171,26 @@ namespace MB.Server.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "Achternaam", "Adres", "Bovenwijdte", "FotoModelId", "Fotos", "Geboortedatum", "GebruikerId", "Geslacht", "Goedgekeurd", "Heupwijdte", "Leeftijd", "Lengte", "Postcode", "Stad", "Taillewijdte", "Voornaam" },
+                values: new object[,]
+                {
+                    { "587b89d3-11d0-42c7-b5bc-b7947998dadc", 0, "efaa986a-3208-465a-abeb-b7d3424dd1cf", "FotoModel", "", false, false, null, null, null, "", null, false, "c52c1c5e-e4b5-4a84-9d72-dd9015f2ee8b", false, null, "Vermeulen", "Leemwierde 40", 90, 1, "", new DateTime(1985, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 1, false, 90, 35, 178, "1353 LT", "Almere", 61, "Fleur" },
+                    { "011918d1-95a3-4f3d-ab11-9b9dade39edc", 0, "d78b8fca-b68c-4204-b4d5-7e76e6585e40", "FotoModel", "", false, false, null, null, null, "", null, false, "fc13ab60-2abc-4daf-a86a-0c3f2edd50c3", false, null, "de Wit", "Oregondreef 102", 86, 2, "", new DateTime(1991, 8, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 1, false, 87, 29, 175, "3565 BG", "Utrecht", 59, "Lynn" },
+                    { "8d0021e9-5897-4c0b-be53-8e5fc9539554", 0, "5f579f8d-b5f9-4832-958d-4efd2bd5fbd4", "FotoModel", "", false, false, null, null, null, "", null, false, "9b20a9f2-8854-49dc-a528-458469c499ba", false, null, "Peters", "Dollardstraat 2", 101, 3, "", new DateTime(1980, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, 0, false, 99, 41, 184, "1826 CS", "Alkmaar", 81, "Luuk" },
+                    { "7e8dcb3f-7c3c-48f5-b49e-3d6ea7eb7793", 0, "7d47a5df-f94b-4069-b919-e943ac2c5cd5", "FotoModel", "", false, false, null, null, null, "", null, false, "05f2c60d-1609-4b68-a48c-41405ff37f27", false, null, "Meijer", "Martin Luther Kinglaan 93", 100, 4, "", new DateTime(1990, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, 0, false, 100, 30, 185, "1111 LK", "Diemen", 81, "Stefan" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "Achternaam", "Adres", "BtwNummer", "GebruikerId", "Goedgekeurd", "KlantId", "KvkNummer", "Logo", "Postcode", "Stad", "Voornaam" },
+                values: new object[,]
+                {
+                    { "2df5e957-a3da-4b33-acf7-e93cb3b6127e", 0, "cb2447ba-6b00-436c-8c5f-8466968a21bc", "Klant", "", false, false, null, null, null, "", null, false, "4dfde062-c6d2-451a-937d-4e5644b45b66", false, null, "Janssen", "Verdilaan 107", "NL123456789B01", 1, false, 1, 12345678, "", "4384 LG", "Vlissingen", "Klaas" },
+                    { "a97686cd-bed8-4054-94a9-0cefd92730bf", 0, "9b1eda94-d5e2-475d-bafe-48099d3623a3", "Klant", "", false, false, null, null, null, "", null, false, "68f4ee3f-4264-41d2-abd7-3f47b56dfb63", false, null, "Gerritsen", "Uiterburen 13", "NL234567890B02", 2, false, 2, 23456789, "", "9636 EC", "Groningen", "Angelina" }
                 });
 
             migrationBuilder.CreateIndex(

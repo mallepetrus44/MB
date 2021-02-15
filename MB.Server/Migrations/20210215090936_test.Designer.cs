@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MB.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210211101505_23")]
-    partial class _23
+    [Migration("20210215090936_test")]
+    partial class test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -289,15 +289,15 @@ namespace MB.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "76fac058-760b-48a2-8686-f6e5a2e23a1e",
+                            Id = "587b89d3-11d0-42c7-b5bc-b7947998dadc",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ee2ba444-29f4-4dc5-a601-444ea07c2532",
+                            ConcurrencyStamp = "efaa986a-3208-465a-abeb-b7d3424dd1cf",
                             Email = "",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0994e0f4-b8ae-4daa-b86e-6dd2696b6f97",
+                            SecurityStamp = "c52c1c5e-e4b5-4a84-9d72-dd9015f2ee8b",
                             TwoFactorEnabled = false,
                             Achternaam = "Vermeulen",
                             Adres = "Leemwierde 40",
@@ -318,15 +318,15 @@ namespace MB.Server.Migrations
                         },
                         new
                         {
-                            Id = "6e53523d-a016-479a-b4c5-77b5357b00b8",
+                            Id = "011918d1-95a3-4f3d-ab11-9b9dade39edc",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7e5c2af0-fea1-488d-8d79-c5d0683b3ec4",
+                            ConcurrencyStamp = "d78b8fca-b68c-4204-b4d5-7e76e6585e40",
                             Email = "",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c282a858-09f9-4f5e-a42e-1fc1a6a5db55",
+                            SecurityStamp = "fc13ab60-2abc-4daf-a86a-0c3f2edd50c3",
                             TwoFactorEnabled = false,
                             Achternaam = "de Wit",
                             Adres = "Oregondreef 102",
@@ -347,15 +347,15 @@ namespace MB.Server.Migrations
                         },
                         new
                         {
-                            Id = "a1191c5e-b2e4-47b2-a748-09dd916135b2",
+                            Id = "8d0021e9-5897-4c0b-be53-8e5fc9539554",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "be9f4d37-c767-400e-a1eb-81c649658f5f",
+                            ConcurrencyStamp = "5f579f8d-b5f9-4832-958d-4efd2bd5fbd4",
                             Email = "",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a261543b-c2d3-47f1-92d5-0471cd84d0d9",
+                            SecurityStamp = "9b20a9f2-8854-49dc-a528-458469c499ba",
                             TwoFactorEnabled = false,
                             Achternaam = "Peters",
                             Adres = "Dollardstraat 2",
@@ -376,15 +376,15 @@ namespace MB.Server.Migrations
                         },
                         new
                         {
-                            Id = "fcd3901d-0b7e-4178-b077-e0e93d7b00e1",
+                            Id = "7e8dcb3f-7c3c-48f5-b49e-3d6ea7eb7793",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3fe28157-f647-46a9-94a0-301e3c0289a5",
+                            ConcurrencyStamp = "7d47a5df-f94b-4069-b919-e943ac2c5cd5",
                             Email = "",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c063424d-0acf-410c-b35b-67290d79a242",
+                            SecurityStamp = "05f2c60d-1609-4b68-a48c-41405ff37f27",
                             TwoFactorEnabled = false,
                             Achternaam = "Meijer",
                             Adres = "Martin Luther Kinglaan 93",
@@ -454,15 +454,15 @@ namespace MB.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "024a0ef7-dd29-4e27-82f5-dfb220a872da",
+                            Id = "2df5e957-a3da-4b33-acf7-e93cb3b6127e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9e0d04d4-cbb3-437f-b4c2-9166099d2e0f",
+                            ConcurrencyStamp = "cb2447ba-6b00-436c-8c5f-8466968a21bc",
                             Email = "",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "186b603e-cfd0-4ebb-a2e7-b2bc9eb22f0b",
+                            SecurityStamp = "4dfde062-c6d2-451a-937d-4e5644b45b66",
                             TwoFactorEnabled = false,
                             Achternaam = "Janssen",
                             Adres = "Verdilaan 107",
@@ -478,15 +478,15 @@ namespace MB.Server.Migrations
                         },
                         new
                         {
-                            Id = "f641ec09-1ec5-4f27-b09f-0aeed4a9c645",
+                            Id = "a97686cd-bed8-4054-94a9-0cefd92730bf",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "499eb86d-59ba-45d5-a3f9-16059553fc1f",
+                            ConcurrencyStamp = "9b1eda94-d5e2-475d-bafe-48099d3623a3",
                             Email = "",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ff6e1e98-0977-45d5-8179-04aae47c581c",
+                            SecurityStamp = "68f4ee3f-4264-41d2-abd7-3f47b56dfb63",
                             TwoFactorEnabled = false,
                             Achternaam = "Gerritsen",
                             Adres = "Uiterburen 13",

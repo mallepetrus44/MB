@@ -103,7 +103,7 @@ namespace MB.Server.Pages
 
         protected void NavigateToOverview()
         {
-            NavigationManager.NavigateTo("/CustomerOverview");
+            NavigationManager.NavigateTo("/fotomodeloverzicht");
         }
 
        

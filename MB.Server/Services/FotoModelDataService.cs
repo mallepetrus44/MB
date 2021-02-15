@@ -1,6 +1,9 @@
-﻿using MB.Shared;
+﻿using BlazorInputFile;
+using MB.Shared;
+using Microsoft.AspNetCore.Hosting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -16,6 +19,12 @@ namespace MB.Server.Services
         public FotoModelDataService(HttpClient httpClient)
         {
             _httpClient = httpClient;
+        }
+
+        private readonly IWebHostEnvironment _environment;
+        public FotoModelDataService(IWebHostEnvironment env)
+        {
+            _environment = env;
         }
 
         public async Task<FotoModel> AddFotoModel(FotoModel fotoModel)
@@ -56,6 +65,17 @@ namespace MB.Server.Services
                new StringContent(JsonSerializer.Serialize(fotoModel), Encoding.UTF8, "application/json");
 
             await _httpClient.PutAsync("api/fotoModel", fotoModelJson);
+        }
+
+        public async Task UploadAsync(IFileListEntry fileEntry)
+        {
+            var path = Path.Combine(_environment.ContentRootPath, "Upload", fileEntry.Name);
+            var ms = new MemoryStream();
+            await fileEntry.Data.CopyToAsync(ms);
+            using (FileStream file = new FileStream(path, FileMode.Create, FileAccess.Write))
+            {
+                ms.WriteTo(file);
+            }
         }
     }
 }
