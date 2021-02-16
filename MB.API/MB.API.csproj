@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Upload\" />
+    <Folder Include="Upload\Images\" />
   </ItemGroup>
 
 
