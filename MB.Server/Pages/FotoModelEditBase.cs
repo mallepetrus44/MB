@@ -1,4 +1,5 @@
 ﻿
+using BlazorInputFile;
 using MB.Server.Services;
 using MB.Shared;
 using Microsoft.AspNetCore.Components;
@@ -10,6 +11,8 @@ namespace MB.Server.Pages
 {
     public class FotoModelEditBase : ComponentBase
     {
+        [Inject]
+        public IFileUpload fileUpload { get; set; }
 
         [Inject]
         public IFotoModelDataService FotoModelDataService { get; set; }
@@ -106,6 +109,14 @@ namespace MB.Server.Pages
             NavigationManager.NavigateTo("/fotomodeloverzicht");
         }
 
-       
+        public IFileListEntry file { get; set; }
+        public async Task HandleFileSelected(IFileListEntry[] files)
+        {
+            file = files.FirstOrDefault();
+            if (file != null)
+            {
+                await fileUpload.UploadAsync(file);
+            }
+        }
     }
 }

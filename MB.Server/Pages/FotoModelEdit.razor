@@ -2,7 +2,6 @@
 @page "/Fotomodeledit/{FotoModelID}"
 @using MB.Shared
 @using MB.Server.Services
-@inject IFileUpload fileUpload
 @inherits FotoModelEditBase
 @*<div class="modal fade show d-block" id="exampleModal" tabindex="-1" role="dialog">*@
 
@@ -121,14 +120,3 @@
     }
 </section>
 
-@code {
-    IFileListEntry file;
-    async Task HandleFileSelected(IFileListEntry[] files)
-    {
-        file = files.FirstOrDefault();
-        if (file != null)
-        {
-            await fileUpload.UploadAsync(file);
-        }
-    }
-}

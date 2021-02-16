@@ -3,6 +3,7 @@ using MB.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace MB.API.Models
@@ -69,6 +70,11 @@ namespace MB.API.Models
             }
 
             return null;
+        }
+
+        public string UploadFotoModelImage(MultipartFormDataContent content)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlazorInputFile;
+using System.Net.Http;
 
 namespace MB.Server.Services
 {
@@ -14,6 +15,6 @@ namespace MB.Server.Services
         Task<FotoModel> AddFotoModel(FotoModel fotoModel);
         Task UpdateFotoModel(FotoModel fotoModel);
         Task DeleteFotoModel(int fotoModelId);
-        Task UploadAsync(IFileListEntry file);
+        Task<string> UploadFotoModelImage(MultipartFormDataContent content);
     }
 }

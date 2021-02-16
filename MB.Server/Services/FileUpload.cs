@@ -4,12 +4,20 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace MB.Server.Services
 {
     public class FileUpload : IFileUpload
     {
+        private readonly HttpClient _httpClient;
+
+        public FileUpload(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
+        }
+
         private readonly IWebHostEnvironment _environment;
         public FileUpload(IWebHostEnvironment env)
         {
