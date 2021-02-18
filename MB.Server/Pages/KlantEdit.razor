@@ -59,7 +59,13 @@
     </div>
     <div class="form-group">
         <label for="logo">Logo </label>
-        <InputText id="logo" class="form-control" @bind-Value="@Klant.Logo" placeholder="Uw Logo"></InputText>
+        <InputFile OnChange="HandleFileSelected" class="btn-primary" />
+        @if (File != null)
+        {
+    <p>Name: @File.Name</p>                           
+    <p>Size in bytes: @File.Size</p>                                                   
+    <p>Last modified date: @File.LastModified.ToShortDateString()</p>
+    <p>Content type (not always supplied by the browser): @File.Type</p>}
         <ValidationMessage For="@(() => Klant.Logo)" />
     </div>
     <div class="form-group">

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using MB.API.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -15,10 +16,12 @@ namespace MB.API.Controllers
     public class UploadController : ControllerBase
     {
         private readonly IWebHostEnvironment _environment;
+
         public UploadController(IWebHostEnvironment env)
         {
             _environment = env;
         }
+
         [HttpPost]
         public async Task<IActionResult> Upload()
         {

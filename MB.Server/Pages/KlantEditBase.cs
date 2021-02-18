@@ -1,8 +1,12 @@
-﻿using MB.Server.Services;
+﻿using BlazorInputFile;
+using MB.Server.Services;
 using MB.Shared;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Identity;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace MB.Server.Pages
@@ -97,6 +101,23 @@ namespace MB.Server.Pages
         protected void NavigateToOverview()
         {
             NavigationManager.NavigateTo("/klantenoverzicht");
+        }
+
+        public IFileListEntry File { get; set; }
+        public async Task HandleFileSelected(IFileListEntry[] files)
+        {
+            File = files.FirstOrDefault();
+            if (File != null)
+            {
+                var ms = new MemoryStream();
+                await File.Data.CopyToAsync(ms);
+
+                var content = new MultipartFormDataContent
+             {
+                 { new ByteArrayContent(ms.GetBuffer()), "\"upload\"", File.Name }
+             };
+                await KlantDataService.UploadKlantImage(content);
+            }
         }
     }
 }
