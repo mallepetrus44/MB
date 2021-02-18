@@ -10,7 +10,7 @@ namespace MB.Shared
     {
         public int KlantId { get; set; }
 
-        [Required]
+        //[Required]
         public string Logo { get; set; }
         [Required]
         public int KvkNummer { get; set; }

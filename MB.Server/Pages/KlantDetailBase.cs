@@ -10,6 +10,9 @@ namespace MB.Server.Pages
         [Inject]
         public IKlantDataService KlantDataService { get; set; }
 
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
+
         [Parameter]
         public string KlantId { get; set; }
 
@@ -19,6 +22,11 @@ namespace MB.Server.Pages
         {
             Klant = await KlantDataService.GetKlantDetails(int.Parse(KlantId));
 
+        }
+
+        protected void NavigateToOverview()
+        {
+            NavigationManager.NavigateTo("/Klantoverzicht");
         }
     }
 }
