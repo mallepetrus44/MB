@@ -72,9 +72,9 @@ namespace MB.API.Models
             return null;
         }
 
-        public string UploadFotoModelImage(MultipartFormDataContent content)
-        {
-            throw new NotImplementedException();
-        }
+        //public string UploadFotoModelImage(MultipartFormDataContent content)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

@@ -16,24 +16,24 @@ namespace MB.Server.Areas.Identity
     {
         public void Configure(IWebHostBuilder builder)
         {
-            builder.ConfigureServices((context, services) =>
-            {
+            //builder.ConfigureServices((context, services) =>
+            //{
 
-                services.AddIdentity<Gebruiker, IdentityRole>(options =>
-                {
-                    options.User.RequireUniqueEmail = true;
-                    options.Password.RequireNonAlphanumeric = false;
-                    options.Password.RequireUppercase = false;
+            //    services.AddIdentity<Gebruiker, IdentityRole>(options =>
+            //    {
+            //        options.User.RequireUniqueEmail = true;
+            //        options.Password.RequireNonAlphanumeric = false;
+            //        options.Password.RequireUppercase = false;
 
-                })
-                .AddDefaultTokenProviders()
-                .AddDefaultUI()
-                .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-                services.AddAuthorization();
-                services.AddAuthentication();
+            //    })
+            //    .AddDefaultTokenProviders()
+            //    .AddDefaultUI()
+            //    .AddRoles<IdentityRole>()
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
+            //    services.AddAuthorization();
+            //    services.AddAuthentication();
 
-            });
+            //});
 
         }
     }
