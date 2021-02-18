@@ -100,7 +100,7 @@ namespace MB.Server.Pages
 
         protected void NavigateToOverview()
         {
-            NavigationManager.NavigateTo("/klantenoverzicht");
+            NavigationManager.NavigateTo("/Klantoverzicht");
         }
 
         public IFileListEntry File { get; set; }

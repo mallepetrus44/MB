@@ -13,6 +13,9 @@ namespace MB.Server.Pages
         [Inject]
         public IFotoModelDataService FotoModelDataService { get; set; }
 
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
+
         [Parameter]
         public string FotoModelId { get; set; }
 
@@ -21,6 +24,11 @@ namespace MB.Server.Pages
         protected override async Task OnInitializedAsync()
         {
             FotoModel = await FotoModelDataService.GetFotoModelDetails(int.Parse(FotoModelId));
+        }
+
+        protected void NavigateToOverview()
+        {
+            NavigationManager.NavigateTo("/fotomodeloverzicht");
         }
     }
 }
