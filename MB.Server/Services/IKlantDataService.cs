@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace MB.Server.Services
@@ -13,5 +14,6 @@ namespace MB.Server.Services
         Task<Klant> AddKlant(Klant klant);
         Task UpdateKlant(Klant klant);
         Task DeleteKlant(int klantId);
+        Task<string> UploadKlantImage(MultipartFormDataContent content);
     }
 }

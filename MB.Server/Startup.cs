@@ -30,13 +30,14 @@ namespace MB.Server
             options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"),
                                     x => x.MigrationsAssembly("MB.Server")));
-            //services.AddDbContext<ApplicationDbContext>(options =>
-            //    options.UseSqlServer(
-            //        Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddRazorPages();
+
             services.AddServerSideBlazor();
+
             services.AddHttpClient<IKlantDataService, KlantDataService>(client =>
             {
                 client.BaseAddress = new Uri("https://localhost:44340/");
@@ -46,7 +47,6 @@ namespace MB.Server
                 client.BaseAddress = new Uri("https://localhost:44340/");
             });
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
-            services.AddScoped<IFileUpload, FileUpload>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

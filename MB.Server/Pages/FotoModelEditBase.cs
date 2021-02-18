@@ -4,16 +4,15 @@ using MB.Server.Services;
 using MB.Shared;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace MB.Server.Pages
 {
     public class FotoModelEditBase : ComponentBase
     {
-        [Inject]
-        public IFileUpload fileUpload { get; set; }
-
         [Inject]
         public IFotoModelDataService FotoModelDataService { get; set; }
 
@@ -109,13 +108,20 @@ namespace MB.Server.Pages
             NavigationManager.NavigateTo("/fotomodeloverzicht");
         }
 
-        public IFileListEntry file { get; set; }
+        public IFileListEntry File { get; set; }
         public async Task HandleFileSelected(IFileListEntry[] files)
         {
-            file = files.FirstOrDefault();
-            if (file != null)
+            File = files.FirstOrDefault();
+            if (File != null)
             {
-                await fileUpload.UploadAsync(file);
+                var ms = new MemoryStream();
+                await File.Data.CopyToAsync(ms);
+
+                var content = new MultipartFormDataContent
+             {
+                 { new ByteArrayContent(ms.GetBuffer()), "\"upload\"", File.Name }
+             };
+                await FotoModelDataService.UploadFotoModelImage(content);
             }
         }
     }

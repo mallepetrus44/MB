@@ -80,7 +80,7 @@ namespace MB.Server.Services
 
         public async Task<string> UploadFotoModelImage(MultipartFormDataContent content)
         {
-            var postResult = await _httpClient.PostAsync("api/fotoModel", content);
+            var postResult = await _httpClient.PostAsync("api/upload", content);
             var postContent = await postResult.Content.ReadAsStringAsync();
             if (!postResult.IsSuccessStatusCode)
             {

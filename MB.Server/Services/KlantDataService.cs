@@ -1,5 +1,7 @@
 ﻿using MB.Shared;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -54,6 +56,21 @@ namespace MB.Server.Services
                  new StringContent(JsonSerializer.Serialize(klant), Encoding.UTF8, "application/json");
 
             await _httpClient.PutAsync("api/klant", klantJson);
+        }
+
+        public async Task<string> UploadKlantImage(MultipartFormDataContent content)
+        {
+            var postResult = await _httpClient.PostAsync("api/upload", content);
+            var postContent = await postResult.Content.ReadAsStringAsync();
+            if (!postResult.IsSuccessStatusCode)
+            {
+                throw new ApplicationException(postContent);
+            }
+            else
+            {
+                var imgUrl = Path.Combine("https://localhost:5011/", postContent);
+                return imgUrl;
+            }
         }
     }
 }
