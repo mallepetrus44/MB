@@ -93,18 +93,17 @@
                 <InputText id="stad" class="form-control" @bind-Value="@FotoModel.Stad" placeholder="Plaatsnaam"></InputText>
                 <ValidationMessage For="@(() => FotoModel.Stad)" />
             </div>
-
+           
             <div class="form-group">
-                <label for="Fotos">Fotos: </label>
+                <label for="Fotos">Fotos: </label>                       
 
-                <InputFile OnChange="HandleFileSelected" class="btn-primary" />
+                <InputFile OnChange="HandleFileSelected"/>
 
                 @if (File != null)
                 {
                     <p>Name: @File.Name</p>
                     <p>Size in bytes: @File.Size</p>
                     <p>Last modified date: @File.LastModified.ToShortDateString()</p>
-                    <p>Content type (not always supplied by the browser): @File.Type</p>
                 }
 
                 <ValidationMessage For="@(() => FotoModel.Fotos)" />

@@ -14,6 +14,5 @@ namespace MB.API.Models
         FotoModel AddFotoModel(FotoModel fotoModel);
         FotoModel UpdateFotoModel(FotoModel fotoModel);
         void DeleteFotoModel(int fotoModelId);
-        string UploadFotoModelImage(MultipartFormDataContent content);
     }
 }

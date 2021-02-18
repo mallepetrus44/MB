@@ -67,21 +67,17 @@ namespace MB.Server.Services
             await _httpClient.PutAsync("api/fotoModel", fotoModelJson);
         }
 
-        //public async Task UploadAsync(IFileListEntry fileEntry)
-        //{
-        //    var path = Path.Combine(_environment.ContentRootPath, "Upload", fileEntry.Name);
-        //    var ms = new MemoryStream();
-        //    await fileEntry.Data.CopyToAsync(ms);
-        //    using (FileStream file = new FileStream(path, FileMode.Create, FileAccess.Write))
-        //    {
-        //        ms.WriteTo(file);
-        //    }
-        //}
 
         public async Task<string> UploadFotoModelImage(MultipartFormDataContent content)
         {
+
+            // resultaat afwachten: De content meegeven (HTTPPOST} aan de httpClient en versturen naar de uploadController 
             var postResult = await _httpClient.PostAsync("api/upload", content);
+
             var postContent = await postResult.Content.ReadAsStringAsync();
+
+
+            // als het resultaat niet OK is een exception anders een imageUrl
             if (!postResult.IsSuccessStatusCode)
             {
                 throw new ApplicationException(postContent);

@@ -108,19 +108,38 @@ namespace MB.Server.Pages
             NavigationManager.NavigateTo("/fotomodeloverzicht");
         }
 
+
+
+
+        // using BlazorInputFile library zorgt dat er gebruik gemaakt kan worden van de Interface IFileListEntry
         public IFileListEntry File { get; set; }
+
+
+        // De InputFile tag in de html triggerd een onchange event HandleFileSelected
+        // Welk bestand komt er binnen (NOG geen restricties geïmplementeerd)
         public async Task HandleFileSelected(IFileListEntry[] files)
         {
             File = files.FirstOrDefault();
             if (File != null)
             {
+                // Een MemoryStream verwerkt data in het geheugen ipv op de schijf. Dit is sneller en zorgt ervoor dat het
+                // bestand niet geblokkeerd wordt.
+
                 var ms = new MemoryStream();
+
+                // De interface IFileListEntry heeft een member Data (Een abstract class Stream)
+                // De memoryStream gebruiken om de Data (Stream) in te kopiëren.
                 await File.Data.CopyToAsync(ms);
 
+
+                // MultipartFormDataContent aan maken (onderdeel van System.Net.Http)
                 var content = new MultipartFormDataContent
              {
-                 { new ByteArrayContent(ms.GetBuffer()), "\"upload\"", File.Name }
+                    //  Bestand bufferen uit geheugen aan de hand van de MemoryStream
+                 { new ByteArrayContent(ms.GetBuffer()), "\"Upload\"", File.Name }
              };
+
+                // content (MultipartFormDataContent uit geheugen gebufferd) meegeven aan FotoModelDataService (method => UploadFotoModelImage)
                 await FotoModelDataService.UploadFotoModelImage(content);
             }
         }

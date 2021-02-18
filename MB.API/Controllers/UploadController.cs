@@ -29,7 +29,8 @@ namespace MB.API.Controllers
             {
                 foreach (var file in HttpContext.Request.Form.Files)
                 {
-                    var path = Path.Combine(_environment.ContentRootPath, "Upload", file.FileName);
+                    // waar kom je vandaan, waar ga je heen en hoe heet je
+                    var path = Path.Combine(_environment.ContentRootPath, "Upload/Images", file.FileName);
                     using var stream = new FileStream(path, FileMode.Create);
                     await file.CopyToAsync(stream);
                 }

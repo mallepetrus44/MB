@@ -16,7 +16,6 @@ namespace MB.API.Controllers
 
         public FotoModelController(IFotoModelRepository fotoModelRepository)
         {
-
             _fotoModelRepository = fotoModelRepository;
         }
 
@@ -38,11 +37,6 @@ namespace MB.API.Controllers
             if (fotoModel == null)
                 return BadRequest();
 
-            //if (fotoModel.Voornaam == string.Empty || fotoModel.Achternaam == string.Empty)
-            //{
-            //    ModelState.AddModelError("Naam/Voornaam", "De naam kan niet leeg zijn");
-            //}
-
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
@@ -56,11 +50,6 @@ namespace MB.API.Controllers
         {
             if (fotoModel == null)
                 return BadRequest();
-
-            //if (fotoModel.Voornaam == string.Empty || fotoModel.Achternaam == string.Empty)
-            //{
-            //    ModelState.AddModelError("Naam/Voornaam", "De naam kan niet leeg zijn");
-            //}
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
