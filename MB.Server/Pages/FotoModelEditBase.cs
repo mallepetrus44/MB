@@ -26,20 +26,16 @@ namespace MB.Server.Pages
 
         public FotoModel FotoModel { get; set; } = new FotoModel();
 
-        ////needed to bind to select to value
-        //protected string CountryId = string.Empty;
 
-        //used to store state of screen
         protected string Message = string.Empty;
         protected string StatusClass = string.Empty;
         protected bool Saved;
-
-        //public List<Country> Countries { get; set; } = new List<Country>();
+        
 
         protected override async Task OnInitializedAsync()
         {
             Saved = false;
-            //Countries = (await CountryDataService.GetAllCountries()).ToList();       
+           
 
             int.TryParse(FotoModelId, out var FotoModelID);
 
@@ -53,14 +49,12 @@ namespace MB.Server.Pages
                 FotoModel = await FotoModelDataService.GetFotoModelDetails(int.Parse(FotoModelId));
             }
 
-            //CountryId = Customer.CountryId.ToString();
-            //JobCategoryId = Customer.JobCategoryId.ToString();
+       
         }
 
         protected async Task HandleValidSubmit()
         {
-            //Customer.CountryId = int.Parse(CountryId);
-            //Customer.JobCategoryId = int.Parse(JobCategoryId);
+           
 
             if (FotoModel.FotoModelId == 0) //new
             {

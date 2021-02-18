@@ -68,6 +68,7 @@ namespace MB.Server.Services
         }
 
 
+
         public async Task<string> UploadFotoModelImage(MultipartFormDataContent content)
         {
 
